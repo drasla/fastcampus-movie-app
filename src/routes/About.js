@@ -1,13 +1,23 @@
-import { Component } from "../core/heropy";
+import { Component } from '../core/heropy'
+import aboutStore from '../store/about'
 
 export default class About extends Component {
     render() {
-        const { a, b, c } = history.state;
-        this.el.innerHTML = `
-        <h1>About Page</h1>
-        <h2>${a}</h2>
-        <h2>${b}</h2>
-        <h2>${c}</h2>
-`;
+        const { photo, name, email, github, blog } = aboutStore.state
+
+        this.el.classList.add('container', 'about')
+        this.el.innerHTML = /* html */ `
+      <div
+        style="background-image: url(${photo})" 
+        class="photo"></div>
+      <p class="name">${name}</p>
+      <p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${email}" target="_blank">
+          ${email}
+        </a>
+      </p>
+      <p><a href="${github}" target="_blank">GitHub</a></p>
+      <p><a href="${blog}" target="_blank">Blog</a></p>
+    `
     }
 }
