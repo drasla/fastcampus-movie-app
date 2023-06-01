@@ -24,6 +24,6 @@ export default class MovieList extends Component {
         movieEl?.append(...store.state.movies.map(movie => new MovieItem({ movie }).el));
 
         const loaderEl = this.el.querySelector(".the-loader");
-        store.state.loading ? loaderEl.classList.remove("hide") : loaderEl.classList.add("hide");
+        store.state.loading ? loaderEl?.classList.remove("hide") : loaderEl?.classList.add("hide");
     }
 }

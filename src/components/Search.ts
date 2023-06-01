@@ -10,19 +10,19 @@ export default class Search extends Component {
         `;
 
         const inputEl = this.el.querySelector("input");
-        inputEl.addEventListener("input", () => {
+        inputEl?.addEventListener("input", () => {
             store.state.searchText = inputEl.value;
         });
-        inputEl.addEventListener("keydown", event => {
+        inputEl?.addEventListener("keydown", async event => {
             if (event.key === "Enter" && store.state.searchText.trim()) {
-                searchMovie(1);
+                await searchMovie(1);
             }
         });
 
         const btnEl = this.el.querySelector(".btn");
-        btnEl.addEventListener("click", () => {
+        btnEl?.addEventListener("click", async () => {
             if (store.state.searchText.trim()) {
-                searchMovie(1);
+                await searchMovie(1);
             }
         });
     }

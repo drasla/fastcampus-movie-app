@@ -1,7 +1,16 @@
-import { Component } from "../core/heropy";
+import {Component} from "../core/heropy";
+import {SimpleMovie} from "../store/movie";
+
+interface Props {
+    [key: string]: unknown,
+
+    movie: SimpleMovie,
+}
 
 export default class MovieItem extends Component {
-    constructor(props) {
+    public props!: Props
+
+    constructor(props: Props) {
         super({
             props,
             tagName: "a",
@@ -9,7 +18,7 @@ export default class MovieItem extends Component {
     }
 
     render() {
-        const { movie } = this.props;
+        const {movie} = this.props;
 
         this.el.setAttribute("href", `#/movie?id=${movie.imdbID}`);
         this.el.classList.add("movie");
